@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginHorizontal="4dp"
+    android:elevation="4dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#222222">
+
+        <TextView
+            android:id="@+id/txtMarca"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Marca"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/txtModelo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modelo"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/txtAnio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Año"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"/>
+
+        <TextView
+            android:id="@+id/txtAceite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Aceite"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/btnEliminar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="#F44336"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

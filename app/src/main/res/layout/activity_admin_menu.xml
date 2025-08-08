@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#F5F5F5"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Menú del Administrador"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="32dp" />
+
+    <Button
+        android:id="@+id/btnCotizaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="📄 Ver Cotizaciones"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF"
+        android:layout_marginBottom="16dp" />
+
+    <Button
+        android:id="@+id/btnTecnicos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#4CAF50"
+        android:text="👷 Gestionar Personal"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnTecnicos2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#4CAF50"
+        android:text="👷 Ver Técnicos"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnUsuarios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="👥 Actualizar Usuarios"
+        android:backgroundTint="#FF9800"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/btnCerrarSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="🔒 Cerrar sesión"
+        android:backgroundTint="#F44336"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="24dp" />
+
+</LinearLayout>
