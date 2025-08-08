@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <TextView
+            android:id="@+id/textViewTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Registro de Usuario"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#000000"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp" />
+
+        <EditText
+            android:id="@+id/nombreInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nombre"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/apellidoInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Apellido"
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/correoInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Correo electrónico"
+            android:inputType="textEmailAddress"
+            android:padding="10dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/contraseñaInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/paisInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="País"
+            android:inputType="textCapWords"
+            android:padding="10dp"
+            android:background="@android:drawable/edit_text"
+            android:layout_marginBottom="20dp"/>
+
+        <Button
+            android:id="@+id/btnRegistrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registrarse"
+            android:backgroundTint="#2196F3"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Volver al Login"
+            android:backgroundTint="#757575"
+            android:textColor="#FFFFFF"
+            android:padding="12dp"/>
+    </LinearLayout>
+</ScrollView>

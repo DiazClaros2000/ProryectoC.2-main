@@ -9,11 +9,13 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.proyectoc.activities.AdminMenuActivity;
+import com.example.proyectoc.activities.RegisterActivity;
 import com.example.proyectoc.activities.UsuarioActivity;
 import com.example.proyectoc.api.ApiClient;
 import com.example.proyectoc.api.ApiService;
 import com.example.proyectoc.model.LoginRequest;
 import com.example.proyectoc.model.LoginResponse;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -21,7 +23,7 @@ import retrofit2.Response;
 public class LoginActivity extends AppCompatActivity {
 
     EditText etCorreo, etContraseña;
-    Button btnLogin;
+    Button btnLogin, btnRegistrarse;
     ApiService api;
 
     @Override
@@ -29,11 +31,16 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        // Referencias a los campos
         etCorreo = findViewById(R.id.etCorreo);
         etContraseña = findViewById(R.id.etContraseña);
         btnLogin = findViewById(R.id.btnLogin);
+        btnRegistrarse = findViewById(R.id.btnRegistrarse);
+
+        // Instancia Retrofit
         api = ApiClient.getRetrofit().create(ApiService.class);
 
+        // Evento para iniciar sesión
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,6 +52,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                // Llamar al login de la API
                 LoginRequest loginRequest = new LoginRequest(correo, clave);
 
                 api.login(loginRequest).enqueue(new Callback<LoginResponse>() {
@@ -77,6 +85,15 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(LoginActivity.this, "Error: " + t.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
+            }
+        });
+
+        // Evento para abrir la pantalla de registro
+        btnRegistrarse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(intent);
             }
         });
     }

@@ -58,6 +58,10 @@
             android:name=".activities.AgregarVehiculoActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".activities.RegisterActivity"
+            android:exported="false" />
+
         <!-- Pantalla de inicio de sesión -->
         <activity
             android:name=".LoginActivity"
