@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etNombreNuevoProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nombre del servicio"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="12dp" />
+
+    <EditText
+        android:id="@+id/etPrecioNuevoProducto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Precio (ej. 150.00)"
+        android:inputType="numberDecimal"
+        android:layout_marginBottom="12dp" />
+
+    <Switch
+        android:id="@+id/switchActivoNuevo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Activo"
+        android:checked="true" />
+
+</LinearLayout>

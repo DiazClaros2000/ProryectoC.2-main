@@ -7,7 +7,7 @@ public class NetworkConfig {
     
     // URLs base para diferentes entornos
     private static final String EMULATOR_URL = "http://10.0.2.2/car_wash_api/";
-    private static final String DEVICE_URL = "http://192.168.100.174/car_wash_api/";
+    private static final String DEVICE_URL = "http://192.168.0.190/car_wash_api/";
     
     // URL que se usará según el entorno
     public static final String BASE_URL = IS_EMULATOR ? EMULATOR_URL : DEVICE_URL;

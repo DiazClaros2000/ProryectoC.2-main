@@ -18,10 +18,14 @@
         android:theme="@style/Theme.ProyectoC"
         tools:targetApi="31">
 
-
         <!-- Menú del administrador -->
         <activity
             android:name=".activities.AdminMenuActivity"
+            android:exported="false" />
+
+        <!-- Pantalla de gestión de precios y productos -->
+        <activity
+            android:name=".empleados.actividades.GestionPreciosProductosActivity"
             android:exported="false" />
 
         <!-- Menú del la gestion empleados -->
@@ -71,7 +75,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
 
         <!-- (Opcional) Otras activities futuras -->
         <!-- <activity android:name=".MainActivity" android:exported="false" /> -->

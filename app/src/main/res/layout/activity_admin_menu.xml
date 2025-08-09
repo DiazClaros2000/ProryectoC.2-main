@@ -52,6 +52,16 @@
         android:textColor="#FFFFFF" />
 
     <Button
+        android:id="@+id/btnGestionPrecios"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="💲 Gestión de Precios y Productos"
+        android:backgroundTint="#9C27B0"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp" />
+
+
+    <Button
         android:id="@+id/btnCerrarSesion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -59,5 +69,7 @@
         android:backgroundTint="#F44336"
         android:textColor="#FFFFFF"
         android:layout_marginTop="24dp" />
+
+
 
 </LinearLayout>
