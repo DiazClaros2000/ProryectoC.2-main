@@ -2,7 +2,7 @@ package com.example.proyectoc.api;
 
 public class RestApiMethodsV {
 
-    public static final String BASE_URL = "http://192.168.0.190/car_wash_api/vehiculos/";
+    public static final String BASE_URL = "http://16.16.0.14/car_wash_api/vehiculos/";
 
     public static final String GET_MARCAS = BASE_URL + "GetMarcas.php";
     public static final String GET_MODELOS = BASE_URL + "GetModelos.php";
