@@ -1,6 +1,7 @@
 package com.example.proyectoc.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences; // AGREGADO
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -84,8 +85,7 @@ public class RegisterActivity extends AppCompatActivity {
                 jsonBody.put("nombre", nombre);
                 jsonBody.put("apellido", apellido);
                 jsonBody.put("correo", correo);
-                // la clave del JSON sigue siendo "contraseña" si tu backend la espera así:
-                jsonBody.put("contraseña", contrasena);
+                jsonBody.put("contraseña", contrasena); // la clave del JSON sigue siendo "contraseña" si tu backend la espera así:
                 jsonBody.put("pais", pais);
 
                 OutputStream os = conn.getOutputStream();
@@ -96,15 +96,15 @@ public class RegisterActivity extends AppCompatActivity {
                 int responseCode = conn.getResponseCode();
 
                 if (responseCode == HttpURLConnection.HTTP_OK || responseCode == HttpURLConnection.HTTP_CREATED) {
-                    // Leer respuesta
                     InputStream is = conn.getInputStream();
                     String respuesta = streamToString(is);
 
-                    // Intentar extraer id_usuario de la respuesta JSON
                     int idUsuario = parseIdFromResponse(respuesta);
 
                     if (idUsuario > 0) {
-                        // Si encontramos el id en la respuesta, vamos directo a UsuarioActivity con el id correcto
+                        // Guardar datos localmente
+                        guardarDatosUsuario(idUsuario, nombre, apellido, correo, pais);
+
                         runOnUiThread(() -> {
                             Toast.makeText(RegisterActivity.this, "Registro exitoso (id: " + idUsuario + ")", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(RegisterActivity.this, com.example.proyectoc.activities.UsuarioActivity.class);
@@ -113,13 +113,10 @@ public class RegisterActivity extends AppCompatActivity {
                             finish();
                         });
                     } else {
-                        // No se encontró id en la respuesta
                         if (autoLoginAfterRegister) {
-                            // Intentar login automático para obtener el id (usa tu API de login existente via Retrofit)
                             runOnUiThread(() -> Toast.makeText(RegisterActivity.this, "Registro OK. Obteniendo ID... (autologin)", Toast.LENGTH_SHORT).show());
                             doAutoLoginAndStart(correo, contrasena);
                         } else {
-                            // Volver al login y pedir que inicie sesión manualmente
                             runOnUiThread(() -> {
                                 Toast.makeText(RegisterActivity.this, "Registro exitoso. Por favor inicia sesión.", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
@@ -128,7 +125,6 @@ public class RegisterActivity extends AppCompatActivity {
                         }
                     }
                 } else {
-                    // Error del servidor al registrar
                     runOnUiThread(() -> Toast.makeText(RegisterActivity.this, "Error al registrar (codigo: " + responseCode + ")", Toast.LENGTH_LONG).show());
                 }
             } catch (Exception e) {
@@ -138,6 +134,18 @@ public class RegisterActivity extends AppCompatActivity {
                 if (conn != null) conn.disconnect();
             }
         }).start();
+    }
+
+    // Guardar datos del usuario localmente
+    private void guardarDatosUsuario(int idUsuario, String nombre, String apellido, String correo, String pais) {
+        SharedPreferences prefs = getSharedPreferences("usuario", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("id_usuario", idUsuario);
+        editor.putString("nombre", nombre);
+        editor.putString("apellido", apellido);
+        editor.putString("correo", correo);
+        editor.putString("pais", pais);
+        editor.apply();
     }
 
     // Convierte InputStream a String
@@ -161,7 +169,6 @@ public class RegisterActivity extends AppCompatActivity {
             if (resp == null || resp.isEmpty()) return -1;
             JSONObject o = new JSONObject(resp);
 
-            // Posibles lugares donde el backend puede devolver el id:
             if (o.has("id_usuario")) return o.getInt("id_usuario");
             if (o.has("id")) return o.getInt("id");
             if (o.has("data")) {
@@ -172,7 +179,6 @@ public class RegisterActivity extends AppCompatActivity {
                     if (d.has("id")) return d.getInt("id");
                 }
             }
-            // Si no encontramos, retornar -1
             return -1;
         } catch (Exception e) {
             Log.e("ParseError", e.toString());
@@ -192,6 +198,14 @@ public class RegisterActivity extends AppCompatActivity {
                     if (res.isSuccess()) {
                         int idUsuario = res.getData().id_usuario;
                         String rol = res.getData().rol;
+
+                        // Guardar datos también en autologin
+                        guardarDatosUsuario(idUsuario,
+                                nombreInput.getText().toString().trim(),
+                                apellidoInput.getText().toString().trim(),
+                                correoInput.getText().toString().trim(),
+                                paisInput.getText().toString().trim());
+
                         runOnUiThread(() -> {
                             Toast.makeText(RegisterActivity.this, "Bienvenido (id: " + idUsuario + ")", Toast.LENGTH_SHORT).show();
                             if ("usuario".equals(rol)) {
@@ -204,7 +218,6 @@ public class RegisterActivity extends AppCompatActivity {
                             finish();
                         });
                     } else {
-                        // No se pudo loguear con las credenciales nuevas
                         runOnUiThread(() -> {
                             Toast.makeText(RegisterActivity.this, "Registro OK, pero no se pudo loguear automáticamente: " + res.getMessage(), Toast.LENGTH_LONG).show();
                             startActivity(new Intent(RegisterActivity.this, LoginActivity.class));

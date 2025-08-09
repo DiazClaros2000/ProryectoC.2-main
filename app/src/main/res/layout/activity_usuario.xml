@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="MENU"
-        android:textColor="#333333"
+        android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="#2196F3"
         android:text="🚗 Mis Vehículos"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
@@ -39,7 +39,7 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#4CAF50"
         android:text="📜 Historial de Servicios"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnMisVehiculos" />
@@ -51,10 +51,22 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#FF9800"
         android:text="🛠 Solicitar Servicio"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnHistorial" />
+
+    <Button
+        android:id="@+id/btnVerPerfil"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#9C27B0"
+        android:text="👤 Ver Perfil"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSolicitarServicio" />
 
     <Button
         android:id="@+id/btnCerrarSesion"
@@ -63,10 +75,10 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="#F44336"
         android:text="🔒 Cerrar sesión"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnSolicitarServicio" />
+        app:layout_constraintTop_toBottomOf="@id/btnVerPerfil" />
 
     <ImageView
         android:id="@+id/imageView"

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
     package="com.example.proyectoc">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -23,12 +22,22 @@
             android:name=".activities.AdminMenuActivity"
             android:exported="false" />
 
+        <!-- Pantalla de Reportes -->
+        <activity
+            android:name=".empleados.actividades.ReportesActivity"
+            android:exported="false" />
+
         <!-- Pantalla de gestión de precios y productos -->
         <activity
             android:name=".empleados.actividades.GestionPreciosProductosActivity"
             android:exported="false" />
 
-        <!-- Menú del la gestion empleados -->
+        <!-- Pantalla de perfil de usuario -->
+        <activity
+            android:name=".activities.PerfilActivity"
+            android:exported="false" />
+
+        <!-- Menú de la gestión empleados -->
         <activity
             android:name=".empleados.MainEmpleados"
             android:exported="false"
@@ -75,9 +84,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!-- (Opcional) Otras activities futuras -->
-        <!-- <activity android:name=".MainActivity" android:exported="false" /> -->
 
     </application>
 
