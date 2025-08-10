@@ -7,11 +7,11 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.proyectoc.R;
 import com.example.proyectoc.empleados.MainEmpleados;
-import com.example.proyectoc.empleados.actividades.GestionPreciosProductosActivity; // Import añadido
+import com.example.proyectoc.empleados.actividades.GestionPreciosProductosActivity;
 
 public class AdminMenuActivity extends AppCompatActivity {
 
-    Button btnCotizaciones, btnTecnicos, btnUsuarios, btnCerrarSesion, btnGestionPrecios; // Botón añadido
+    Button btnCotizaciones, btnTecnicos, btnUsuarios, btnCerrarSesion, btnGestionPrecios;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,13 @@ public class AdminMenuActivity extends AppCompatActivity {
         btnTecnicos = findViewById(R.id.btnTecnicos);
         btnUsuarios = findViewById(R.id.btnUsuarios);
         btnCerrarSesion = findViewById(R.id.btnCerrarSesion);
-        btnGestionPrecios = findViewById(R.id.btnGestionPrecios); // Inicialización añadida
+        btnGestionPrecios = findViewById(R.id.btnGestionPrecios);
 
-        btnCotizaciones.setOnClickListener(v ->
-                Toast.makeText(this, "Cotizaciones (falta pantalla)", Toast.LENGTH_SHORT).show());
+        // BOTÓN ACTUALIZADO - Ya no muestra toast, abre la actividad de gestión
+        btnCotizaciones.setOnClickListener(v -> {
+            Intent intent = new Intent(AdminMenuActivity.this, GestionCotizacionesActivity.class);
+            startActivity(intent);
+        });
 
         btnTecnicos.setOnClickListener(v -> {
             Intent intent = new Intent(AdminMenuActivity.this, MainEmpleados.class);
@@ -35,7 +38,7 @@ public class AdminMenuActivity extends AppCompatActivity {
         btnUsuarios.setOnClickListener(v ->
                 Toast.makeText(this, "Usuarios (falta pantalla)", Toast.LENGTH_SHORT).show());
 
-        btnGestionPrecios.setOnClickListener(v -> { // Listener añadido
+        btnGestionPrecios.setOnClickListener(v -> {
             Intent intent = new Intent(AdminMenuActivity.this, GestionPreciosProductosActivity.class);
             startActivity(intent);
         });

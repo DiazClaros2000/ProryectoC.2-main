@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
         new Thread(() -> {
             HttpURLConnection conn = null;
             try {
-                URL url = new URL("http://16.16.0.14/car_wash_api/routes/register.php");
+                URL url = new URL("http://192.168.100.174/car_wash_api/routes/register.php");
                 conn = (HttpURLConnection) url.openConnection();
                 conn.setRequestMethod("POST");
                 conn.setRequestProperty("Content-Type", "application/json; charset=UTF-8");

@@ -5,6 +5,7 @@ import com.example.proyectoc.empleados.modelo.Servicio;
 import com.example.proyectoc.model.LoginRequest;
 import com.example.proyectoc.model.LoginResponse;
 import com.example.proyectoc.model.Usuario;
+import com.example.proyectoc.model.Cotizacion;
 
 import java.util.List;
 
@@ -39,6 +40,14 @@ public interface ApiService {
     @POST("DeleteEmpleado.php")
     Call<ApiResponse> deleteEmpleado(@Body Empleado empleado);
 
+    // Endpoints para Cotizaciones
+    @GET("cotizacion/listar_admin.php")
+    Call<ApiResponseWithData<List<Cotizacion>>> listarCotizacionesAdmin();
+
+    @POST("cotizacion/responder.php")
+    Call<ApiResponse> responderCotizacion(@Body ResponderCotizacionRequest request);
+
+
 
 
 
@@ -67,5 +76,33 @@ public interface ApiService {
         public void setIssuccess(boolean issuccess) {
             this.issuccess = issuccess;
         }
+    }
+    // Agregar estas clases al final de ApiService.java, después de ApiResponse:
+
+    class ResponderCotizacionRequest {
+        public int id_cotizacion;
+        public double precio_ofrecido;
+        public String nota_admin;
+
+        public ResponderCotizacionRequest(int id_cotizacion, double precio_ofrecido, String nota_admin) {
+            this.id_cotizacion = id_cotizacion;
+            this.precio_ofrecido = precio_ofrecido;
+            this.nota_admin = nota_admin;
+        }
+    }
+
+    class ApiResponseWithData<T> {
+        private boolean success;
+        private String message;
+        private T data;
+
+        public boolean isSuccess() { return success; }
+        public void setSuccess(boolean success) { this.success = success; }
+
+        public String getMessage() { return message; }
+        public void setMessage(String message) { this.message = message; }
+
+        public T getData() { return data; }
+        public void setData(T data) { this.data = data; }
     }
 }

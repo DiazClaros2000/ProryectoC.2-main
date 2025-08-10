@@ -1,7 +1,7 @@
 package com.example.proyectoc.api;
 
 public class RestApiMethodsE {
-    public static final String BASE_URL = "http://16.16.0.14/car_wash_api/empleados/";
+    public static final String BASE_URL = "http://192.168.100.174/car_wash_api/empleados/";
 
     // Endpoints del CRUD de Empleados
     public static final String EndpointGetEmpleados = BASE_URL + "GetEmpleados.php";

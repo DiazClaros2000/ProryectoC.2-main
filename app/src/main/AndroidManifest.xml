@@ -85,6 +85,16 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.GestionCotizacionesActivity"
+            android:exported="false"
+            android:label="Gestión de Cotizaciones"
+            android:parentActivityName=".activities.AdminMenuActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".activities.AdminMenuActivity" />
+        </activity>
+
     </application>
 
 </manifest>
